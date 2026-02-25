@@ -20,9 +20,7 @@ t = symbols("t")
 p1 = Matrix([0,1])
 p2 = Matrix([1,1])
 desmos.write("p_1", p1)
-desmos.write("p_2", p2)
-
-desmos.write(F("F")(x))
+desmos.write("p_2", p2, color="cyan")
 
 
 desmos.open_browser()

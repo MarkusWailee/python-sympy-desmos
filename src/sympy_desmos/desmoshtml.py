@@ -15,7 +15,7 @@ class DesmosHtml:
         self.path = path
         self.api_src = api_src
 
-    def write(self, left, right=None):
+    def write(self, left, right=None, color=None):
         """
         Writes a Desmos expression.
 
@@ -40,7 +40,9 @@ class DesmosHtml:
         left = left if isinstance(left, str) else sp.latex(left)
         right = right if isinstance(right, str) or right == None else sp.latex(right)
         expr = left if right == None else f"{left} = {right}"
-        text = f"calculator.setExpression({{ latex: \"{expr}\" }});\n"
+        e1 = f"calculator.setExpression({{ latex: \"{expr}\" }});\n"
+        e2 = f"calculator.setExpression({{ latex: \"{expr}\", color: \"{color}\" }});\n"
+        text = e2 if color else e1
         self.buffer.write(text)
 
     def get_javasript(self):
