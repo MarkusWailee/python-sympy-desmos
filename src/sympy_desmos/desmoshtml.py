@@ -44,6 +44,8 @@ class DesmosHtml:
         e2 = f"calculator.setExpression({{ latex: \"{expr}\", color: \"{color}\" }});\n"
         text = e2 if color else e1
         self.buffer.write(text)
+    def _get_graph_mode(self):
+        return str("GraphingCalculator")
 
     def get_javasript(self):
         """
@@ -51,9 +53,9 @@ class DesmosHtml:
         """
 
 
-        text_s = """
+        text_s = f"""
 var elt = document.getElementById(\"calculator\");
-var calculator = Desmos.GraphingCalculator(elt);
+var calculator = Desmos.{self._get_graph_mode()}(elt);
         """
         text = self.buffer.getvalue()
         # match all vectors and replaces with '(group)'. group should not contain matrices
@@ -110,11 +112,11 @@ var calculator = Desmos.GraphingCalculator(elt);
 
 
 class Desmos2D(DesmosHtml):
-    def __init__(self, path="desmos2d.html", api_src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"):
-        super().__init__(path, api_src)
+    def _get_graph_mode(self):
+        return str("GraphingCalculator")
 
 
 class Desmos3D(DesmosHtml):
-    def __init__(self, path="desmos3d.html", api_src="https://www.desmos.com/api/v1.12/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"):
-        super().__init__(path, api_src)
+    def _get_graph_mode(self):
+        return str("Calculator3D")
 

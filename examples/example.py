@@ -1,4 +1,4 @@
-from sympy_desmos import Desmos2D
+from sympy_desmos import Desmos2D, Desmos3D
 from sympy import *
 from sympy import Function as F
 
