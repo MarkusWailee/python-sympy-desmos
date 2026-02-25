@@ -1,0 +1,27 @@
+[project]
+name = "python-sympy-desmos"
+version = "0.0.1"
+authors = [{ name="Markus Angrignon" }]
+description = "Simple library for using desmos with python"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+dependencies = [
+    "sympy"
+]
+
+[project.urls]
+Homepage = "https://github.com/MarkusWailee/python-sympy-desmos"
+
+
+
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
